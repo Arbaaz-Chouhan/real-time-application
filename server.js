@@ -6,11 +6,10 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
 
-
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.resolve("./public")))
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html');
+  res.sendFile('/public/index.html');
 });
 
 // Handle Socket.IO connections
